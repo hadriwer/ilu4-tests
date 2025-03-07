@@ -1,0 +1,4 @@
+- implémentation
+- script (c, shell) => prendre le contenu du test (nimporte quel format), programme de test en (c, java, shell)
+- tirer les résultat dans les oracles
+- analyse de code coverage (screen sur les retours des tests et l'entiereté des jeux de tests)
