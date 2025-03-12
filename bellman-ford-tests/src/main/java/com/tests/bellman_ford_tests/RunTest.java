@@ -12,14 +12,13 @@ import org.jgrapht.graph.SimpleDirectedWeightedGraph;
 
 public class RunTest {
 	
-	public static void runTestCase() throws FileNotFoundException, IOException {
-		String path = "tests_cases.txt";
-		int num_test = 1; // Compteur de tests
+	public static void runTestCase(String path) throws FileNotFoundException, IOException {
+		int num_test = 1, testSucc = 0; // Compteur de tests
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 			String deb;
 			
-			System.out.println("Début du jeu de test.");
+			System.out.println("Début du jeu de test du fichier : " + path);
 			while ((deb = br.readLine()) != null) {
 				// Début de la création du test
 				System.out.println("----------------------------");
@@ -45,6 +44,7 @@ public class RunTest {
 				// Vérification
 				if (Double.compare(res_bf, res) == 0) {
 					System.out.println("pass");
+					testSucc++;
 				}
 				else {
 					System.out.println("fail");
@@ -52,6 +52,9 @@ public class RunTest {
 				num_test++;
 				
 			} // end while 
+			System.out.println("##################################");
+			System.out.println("Nombre de tests réussis : " + (float)testSucc / (num_test - 1) * 100 + " %");
+			System.out.println("##################################");
 		} // end try
 		catch (IOException e) {
             e.printStackTrace();
@@ -59,7 +62,7 @@ public class RunTest {
 	}
 	
 	public static void main(String[] args) throws FileNotFoundException, IOException {
-		runTestCase();
+		runTestCase("tests_cases.txt");
 	}
 
 }
