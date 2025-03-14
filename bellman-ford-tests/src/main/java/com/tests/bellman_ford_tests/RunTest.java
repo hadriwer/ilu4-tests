@@ -5,11 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import org.jgrapht.Graph;
-import org.jgrapht.alg.shortestpath.BellmanFordShortestPath;
-import org.jgrapht.graph.DefaultWeightedEdge;
-import org.jgrapht.graph.SimpleDirectedWeightedGraph;
-
 public class RunTest {
 	
 	public static void runTestCase(String path) throws FileNotFoundException, IOException {
@@ -24,28 +19,33 @@ public class RunTest {
 				System.out.println("----------------------------");
 				System.out.print("Test " + num_test + " : ");
 				
+				// Prend les paramètres v et e : v => nombre de sommet, e => nombre arc
 				int v = Integer.parseInt(deb.trim());
+				deb = br.readLine();
 				int e = Integer.parseInt(deb.trim());
 				BellmanFord graph = new BellmanFord(v, e);
 				
 				
+				// Itération de tous les arcs dans le fichier
 				for (int i = 0; i < e; i++) {
 					String[] line = br.readLine().split(" ");
 					int poid = Integer.parseInt(line[2]);
 					
-					graph.edge[i].source = line[0];
-					graph.edge[i].destination = line[1];
+					graph.edge[i].source = line[0].charAt(0);
+					graph.edge[i].destination = line[1].charAt(0);
 					graph.edge[i].weight = poid;
 					
 				}
 				
+				// Oracle
 				String[] param = br.readLine().split(" ");
-				double res = Double.parseDouble(br.readLine());
-				BellmanFordShortestPath<String, DefaultWeightedEdge> bellmanFord = new BellmanFordShortestPath<>(graph);
-				double res_bf = bellmanFord.getPathWeight(param[0], param[1]);
+				int res = Integer.parseInt(br.readLine());
+				
+				// Résultat de l'algorithme
+				int res_b = graph.BellmanFordAlgo(graph, param[0].charAt(0), param[1].charAt(0));
 			
 				// Vérification
-				if (Double.compare(res_bf, res) == 0) {
+				if (Integer.compare(res_b, res) == 0) {
 					System.out.println("pass");
 					testSucc++;
 				}

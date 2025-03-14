@@ -1,11 +1,6 @@
 package com.tests.bellman_ford_tests;
 import java.util.Arrays;
 
-import org.jgrapht.Graph;
-import org.jgrapht.alg.shortestpath.BellmanFordShortestPath;
-import org.jgrapht.graph.DefaultWeightedEdge;
-import org.jgrapht.graph.SimpleDirectedWeightedGraph;
-
 
 /**
  * 		Implémentation de Bellman-Ford
@@ -35,7 +30,7 @@ public class BellmanFord {
     }
 
     // Bellman-Ford Algorithm to find shortest paths from source to all vertices
-    void BellmanFordAlgo(BellmanFord graph, char source) {
+    int BellmanFordAlgo(BellmanFord graph, char source, char arrivee) {
         int V = graph.V, E = graph.E;
         int dist[] = new int[V];
 
@@ -61,12 +56,14 @@ public class BellmanFord {
             int weight = graph.edge[j].weight;
             if (dist[u-65] != Integer.MAX_VALUE && dist[u-65] + weight < dist[v-65]) {
                 System.out.println("Graph contains negative weight cycle");
-                return;
+                return 1;
             }
         }
 
         // Print distances from source to all vertices
-        printDistances(dist, V);
+//        printDistances(dist, V);
+        
+        return dist[arrivee-65];
     }
 
     // Print distances from source to all vertices
