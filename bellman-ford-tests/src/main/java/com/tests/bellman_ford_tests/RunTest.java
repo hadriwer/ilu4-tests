@@ -23,16 +23,19 @@ public class RunTest {
 				// Début de la création du test
 				System.out.println("----------------------------");
 				System.out.print("Test " + num_test + " : ");
-				Graph<String, DefaultWeightedEdge> graph = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
-				int nombre_sommet_graphe = Integer.parseInt(deb.trim());
 				
-				for (int i = 0; i < nombre_sommet_graphe; i++) {
+				int v = Integer.parseInt(deb.trim());
+				int e = Integer.parseInt(deb.trim());
+				BellmanFord graph = new BellmanFord(v, e);
+				
+				
+				for (int i = 0; i < e; i++) {
 					String[] line = br.readLine().split(" ");
-					double poid = Double.parseDouble(line[2]);
+					int poid = Integer.parseInt(line[2]);
 					
-					graph.addVertex(line[0]);
-					graph.addVertex(line[1]);
-					graph.setEdgeWeight(graph.addEdge(line[0], line[1]), poid);
+					graph.edge[i].source = line[0];
+					graph.edge[i].destination = line[1];
+					graph.edge[i].weight = poid;
 					
 				}
 				
@@ -40,7 +43,7 @@ public class RunTest {
 				double res = Double.parseDouble(br.readLine());
 				BellmanFordShortestPath<String, DefaultWeightedEdge> bellmanFord = new BellmanFordShortestPath<>(graph);
 				double res_bf = bellmanFord.getPathWeight(param[0], param[1]);
-				
+			
 				// Vérification
 				if (Double.compare(res_bf, res) == 0) {
 					System.out.println("pass");
@@ -49,20 +52,16 @@ public class RunTest {
 				else {
 					System.out.println("fail");
 				}
+				
 				num_test++;
 				
 			} // end while 
-			System.out.println("##################################");
+			System.out.println();
 			System.out.println("Nombre de tests réussis : " + (float)testSucc / (num_test - 1) * 100 + " %");
-			System.out.println("##################################");
+			System.out.println();
 		} // end try
 		catch (IOException e) {
             e.printStackTrace();
         }
 	}
-	
-	public static void main(String[] args) throws FileNotFoundException, IOException {
-		runTestCase("tests_cases.txt");
-	}
-
 }
