@@ -13,10 +13,12 @@ import org.jgrapht.graph.SimpleDirectedWeightedGraph;
 public class BellmanFord {	
 	// Graph is Created Using Edge Class
     static class Edge {
-        int source, destination, weight;
+    	int weight;
+    	char source, destination;
 
         Edge() {
-            source = destination = weight = 0;
+        	weight = 0;
+            source = destination = ' ';
         }
     }
 
@@ -33,31 +35,31 @@ public class BellmanFord {
     }
 
     // Bellman-Ford Algorithm to find shortest paths from source to all vertices
-    void BellmanFordAlgo(BellmanFord graph, int source) {
+    void BellmanFordAlgo(BellmanFord graph, char source) {
         int V = graph.V, E = graph.E;
         int dist[] = new int[V];
 
         // Step 1: Initialize distances from source to all other vertices as INFINITE
         Arrays.fill(dist, Integer.MAX_VALUE);
-        dist[source] = 0;
+        dist[source-65] = 0;
 
         // Step 2: Relax all edges |V| - 1 times.
         for (int i = 1; i < V; ++i) {
             for (int j = 0; j < E; ++j) {
-                int u = graph.edge[j].source;
-                int v = graph.edge[j].destination;
+                char u = graph.edge[j].source;
+                char v = graph.edge[j].destination;
                 int weight = graph.edge[j].weight;
-                if (dist[u] != Integer.MAX_VALUE && dist[u] + weight < dist[v])
-                    dist[v] = dist[u] + weight;
+                if (dist[u-65] != Integer.MAX_VALUE && dist[u-65] + weight < dist[v-65])
+                    dist[v-65] = dist[u-65] + weight;
             }
         }
 
         // Step 3: Check for negative-weight cycles
         for (int j = 0; j < E; ++j) {
-            int u = graph.edge[j].source;
-            int v = graph.edge[j].destination;
+            char u = graph.edge[j].source;
+            char v = graph.edge[j].destination;
             int weight = graph.edge[j].weight;
-            if (dist[u] != Integer.MAX_VALUE && dist[u] + weight < dist[v]) {
+            if (dist[u-65] != Integer.MAX_VALUE && dist[u-65] + weight < dist[v-65]) {
                 System.out.println("Graph contains negative weight cycle");
                 return;
             }
