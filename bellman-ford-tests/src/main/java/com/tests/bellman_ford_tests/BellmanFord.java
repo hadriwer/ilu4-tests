@@ -65,11 +65,4 @@ public class BellmanFord {
         
         return dist[arrivee-65];
     }
-
-    // Print distances from source to all vertices
-    void printDistances(int dist[], int V) {
-        System.out.println("Vertex Distance from Source:");
-        for (int i = 0; i < V; ++i)
-            System.out.println(i + "\t\t" + dist[i]);
-    }
 }
