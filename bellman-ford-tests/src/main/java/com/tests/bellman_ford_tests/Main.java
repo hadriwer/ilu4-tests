@@ -7,9 +7,9 @@ public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 
-		RunTest.runTestCase("tests_cases.txt");
-		RunTest.runTestCase("question3.txt");
-		RunTest.runTestCase("negative_weight_cycle.txt");
+//		RunTest.runTestCase("tests_cases.txt");
+//		RunTest.runTestCase("question3.txt");
+		RunTest.runTestCase("question4.txt");
 	}
 
 }
