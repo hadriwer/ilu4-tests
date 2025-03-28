@@ -33,11 +33,9 @@ public class BellmanFord {
     int BellmanFordAlgo(BellmanFord graph, char source, char arrivee) {
         int V = graph.V, E = graph.E;
         int dist[] = new int[V];
-
         // Step 1: Initialize distances from source to all other vertices as INFINITE
         Arrays.fill(dist, Integer.MAX_VALUE);
         dist[source-65] = 0;
-
         // Step 2: Relax all edges |V| - 1 times.
         for (int i = 1; i < V; ++i) {
             for (int j = 0; j < E; ++j) {
@@ -48,7 +46,6 @@ public class BellmanFord {
                     dist[v-65] = dist[u-65] + weight;
             }
         }
-
         // Step 3: Check for negative-weight cycles
         for (int j = 0; j < E; ++j) {
             char u = graph.edge[j].source;
@@ -59,10 +56,6 @@ public class BellmanFord {
                 return 1;
             }
         }
-
-        // Print distances from source to all vertices
-//        printDistances(dist, V);
-        
         return dist[arrivee-65];
     }
 }
