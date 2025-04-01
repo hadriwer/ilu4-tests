@@ -1,0 +1,18 @@
+1)
++ Cas général: Graphe orienté avec des poids positifs et négatifs sans cycles négatifs.
+
+- Poids positifs uniquement
+- Poids négatifs uniquement
+	- avec cycle
+	- sans cycle
+- Poids égal a 0
+	- avec cycle
+	- sans cycle
+- Poids positifs et négatifs
+	- avec cycle
+	- sans cycle
+
++ Vérifications des cas limites :
+
+- Graphe avec un seul sommet
+- Graphe avec un sommet non atteignable
