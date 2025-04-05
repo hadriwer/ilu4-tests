@@ -1,0 +1,102 @@
+1
+0
+A A 
+0
+10
+42
+A B 8
+A C 4
+A D 9
+A E 7
+A F 1
+A G 4
+A H 3
+B C 1
+B F 10
+B G 5
+C D 10
+C F 2
+C G 6
+C I 1
+D A 4
+D C 4
+D E 3
+D G 3
+E A 7
+E C 2
+E D 7
+E G 6
+E I 2
+F B 6
+F C 2
+F E 7
+F G 3
+F I 8
+G A 4
+G B 5
+G C 6
+G E 6
+G F 3
+G I 2
+H A 4
+H D 7
+H F 8
+H I 2
+I A 3
+I C 2
+I E 2
+I G 2
+I H 2
+6
+26
+48
+A B 3
+A C 5
+B D 2
+C D 8
+C E 2
+D F 1
+E F 4
+F G 3
+G H 2
+H I 1
+I J 5
+J K 3
+K L 2
+L M 4
+M N 1
+N O 2
+O P 3
+P Q 2
+Q R 1
+R S 4
+S T 2
+T U 3
+U V 5
+V W 2
+W X 1
+X Y 3
+Y Z 4
+B E 2
+C G 7
+D H 3
+E I 6
+F J 2
+G K 5
+H L 1
+I M 4
+J N 3
+K O 2
+L P 6
+M Q 5
+N R 2
+O S 3
+P T 4
+Q U 1
+R V 2
+S W 3
+T X 5
+U Y 1
+V Z 2
+A Z
+17
