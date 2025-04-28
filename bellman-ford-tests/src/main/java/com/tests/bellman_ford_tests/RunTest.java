@@ -43,7 +43,6 @@ public class RunTest {
 				
 				// Résultat de l'algorithme
 				int res_b = graph.BellmanFordAlgo(graph, param[0].charAt(0), param[1].charAt(0));
-//				System.out.println(res_b);
 			
 				// Vérification
 				if (Integer.compare(res_b, res) == 0) {

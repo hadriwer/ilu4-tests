@@ -6,8 +6,8 @@ import java.io.IOException;
 public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {
-//		RunTest.runTestCase("question3.txt");
-//		RunTest.runTestCase("question4.txt");
+		RunTest.runTestCase("question3.txt");
+		RunTest.runTestCase("question4.txt");
 		RunTest.runTestCase("question5.txt");
 	}
 
